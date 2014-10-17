@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
 	"github.com/poofyleek/glog"
@@ -12,7 +13,8 @@ import (
 func main() {
 	var CIDR, dev, OUIFile string
 	var timeout int64
-
+	JSON := false
+	flag.BoolVar(&JSON, "json", false, "output JSON")
 	flag.StringVar(&CIDR, "cidr", "", "CIDR to scan")
 	flag.StringVar(&OUIFile, "ouifile", "ieee-oui.txt", "IEEE OUI database text file")
 	flag.StringVar(&dev, "dev", "", "net device to use")
@@ -37,7 +39,16 @@ func main() {
 		for {
 			res := <-ch
 			if res.Type == "scan" {
-				fmt.Println(res.Scan)
+				if JSON {
+					jstr, err := json.Marshal(res.Scan)
+					if err != nil {
+						glog.Errorf("marshalling error: %v", err)
+						continue
+					}
+					fmt.Println(string(jstr))
+				} else {
+					fmt.Println(res.Scan)
+				}
 			}
 		}
 	}()
