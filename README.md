@@ -46,5 +46,7 @@ Example output:
 ...
 ```
 
+It can also print JSON output.
+
 
 Public domain
