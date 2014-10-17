@@ -1,22 +1,22 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/poofyleek/glog"
 	"github.com/poofyleek/pingcap"
-	"time"
 	"os"
-	"flag"
+	"time"
 )
 
 func main() {
-	var CIDR, dev , OUIFile string	
+	var CIDR, dev, OUIFile string
 	var timeout int64
 
 	flag.StringVar(&CIDR, "cidr", "", "CIDR to scan")
 	flag.StringVar(&OUIFile, "ouifile", "ieee-oui.txt", "IEEE OUI database text file")
 	flag.StringVar(&dev, "dev", "", "net device to use")
-	flag.Int64Var(&timeout, "timeout" , 5, "seconds to timeout")
+	flag.Int64Var(&timeout, "timeout", 5, "seconds to timeout")
 	flag.Parse()
 	if dev == "" || CIDR == "" {
 		flag.Usage()
@@ -35,14 +35,14 @@ func main() {
 	}()
 	go func() {
 		for {
-			res := <- ch
+			res := <-ch
 			if res.Type == "scan" {
 				fmt.Println(res.Scan)
 			}
 		}
 	}()
-	err := pingcap.PingScan(CIDR, OUIFile, dev , ch)
-	if err != nil{
+	err := pingcap.PingScan(CIDR, OUIFile, dev, ch)
+	if err != nil {
 		panic(err)
 	}
 }
