@@ -3,9 +3,9 @@ pingcap
 
 ![](http://www.progolf.dk/imageserver/getimage.ashx?Imagename=/Files/Images/ecom/ping-kasket-classic-bright-1388673907_102.jpg&w=308&h=378)
 
-Go (golang) based scanning of machines via ping and packet capture via pcap to get ethernet address
+A tool to discover machines via ping and packet capture.
 
-It works kind of like arpscan.  But not using ARP.
+It is similar to arpscan.  But not using ARP.
 
 Instead:
 
