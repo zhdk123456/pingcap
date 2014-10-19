@@ -3,7 +3,7 @@ package pingcap
 import (
 	"fmt"
 	"github.com/poofyleek/glog"
-	"github.com/poofyleek/pcap"
+	"github.com/miekg/pcap"
 	"io/ioutil"
 	"net"
 	"os"
