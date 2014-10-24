@@ -52,6 +52,12 @@ Usage of ./pingscan:
 
 Building:
 
+You may need to have libpcap-dev on Linux
+```
+sudo apt-get install libpcap-dev
+```
+
+Get the source code:
 ```
 go get github.com/poofyleek/pingcap
 ```
