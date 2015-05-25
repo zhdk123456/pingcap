@@ -1,9 +1,7 @@
 pingcap
 =======
 
-![](http://www.progolf.dk/imageserver/getimage.ashx?Imagename=/Files/Images/ecom/ping-kasket-classic-bright-1388673907_102.jpg&w=308&h=378)
-
-A tool to discover machines via ping and packet capture.
+A tiny tool to discover machines via ping and packet capture.
 
 It is similar to arpscan.  But not using ARP.
 
